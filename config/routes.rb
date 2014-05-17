@@ -1,5 +1,5 @@
 Kivorflow::Application.routes.draw do
-  get '/', :to => "home#index"
+  root :to => "home#index"
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
 
