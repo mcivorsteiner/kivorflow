@@ -43,25 +43,3 @@
   <h3>Submit an Answer:</h3>
   <%= render :partial => 'shared/new_answer_form', :locals => { question: @question, answer: @answer } %>
 <% end %>
-
-<div id="comments">
-  <h3>Comments:</h3>
-  <ul>
-    <% @question.comments.each do |comment| %>
-      <li>
-        <text><%= "#{comment.content} (#{comment.user.full_name})" %></text>
-      </li>
-    <% end %>
-  </ul>
-</div>
-
-<% if logged_in? && current_user != @question.user %>
-  <h3>Submit an Comment:</h3>
-  <%= form_for @comment do |f| %>
-    <%= f.hidden_field :commentable_type, :value => "Question" %>
-    <%= f.hidden_field :commentable_id, :value => @question.id %>
-
-    <%= f.text_area :content %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
