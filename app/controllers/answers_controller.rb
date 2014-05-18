@@ -9,6 +9,13 @@ class AnswersController < ApplicationController
   end
 
   def create
+    question = Question.find(params[:question_id])
+    @answer = question.answers.build(content: params[:answer][:content], user_id: session[:user_id])
+    if @answer.save
+      redirect_to question_path(question)
+    else
+      redirect_to question_path(question)
+    end
   end
 
   def edit
