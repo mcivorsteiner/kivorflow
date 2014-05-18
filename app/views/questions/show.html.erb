@@ -18,14 +18,16 @@
       <% end %>
     </ul>
   </div>
-  <%= link_to "show" %>
-  <%= form_for :comment, url: '/comments' do |f| %>
-    <%= f.hidden_field :commentable_type, :value => "Question" %>
-    <%= f.hidden_field :commentable_id, :value => @question.id %>
+  <%= link_to "Add Comment", @question, :class => "comment-form-link" %>
+  <div class="comment-form hidden">
+    <%= form_for :comment, url: '/comments' do |f| %>
+      <%= f.hidden_field :commentable_type, :value => "Question" %>
+      <%= f.hidden_field :commentable_id, :value => @question.id %>
 
-    <%= f.text_area :content %>
-    <%= f.submit %>
-  <% end %>
+      <%= f.text_area :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
 
 <div id="answers">
