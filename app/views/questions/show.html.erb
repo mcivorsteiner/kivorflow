@@ -1,0 +1,9 @@
+<div id="question-display">
+  <h3><%= @question.title %></h3>
+  <p><%= @question.content %></p>
+  <text class="question-details">created by <%= @question.user.full_name %> at <%= @question.created_at %></text>
+  <% if current_user == @question.user %>
+    <%= link_to "Edit", edit_question_path(@question) %>
+    <%= link_to "Delete", question_path(@question), :method => "delete" %>
+  <% end %>
+</div>

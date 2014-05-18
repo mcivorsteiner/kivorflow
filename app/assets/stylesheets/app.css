@@ -42,3 +42,7 @@ textarea {
   margin-top:0;
 }
 
+.question-details {
+  font-size: .8em;
+  display: block;
+}

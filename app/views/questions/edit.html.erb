@@ -1,0 +1,15 @@
+<h3>Edit Your Question!</h3>
+
+<%= form_for @question do |f| %>
+  <li>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+  </li>
+  <li>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  </li>
+  <li>
+  <%= f.submit %>
+</li>
+<% end %>
