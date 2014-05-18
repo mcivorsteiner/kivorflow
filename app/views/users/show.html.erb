@@ -1,2 +1,14 @@
 <h2>Name: <%= @user.full_name %></h2>
 <h3>Email: <%= @user.email %></h3>
+
+<div id="user-questions">
+  <h3>Most Recent Questions by this User:</h3>
+  <% @user.questions[0..5].each do |question| %>
+    <%= render :partial => 'shared/question_display', locals: { question: question } %>
+  <% end %>
+</div>
+
+<% if @user == current_user %>
+  <%= render :partial => 'shared/new_question_form' %>
+<% end %>
+
