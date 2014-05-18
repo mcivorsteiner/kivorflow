@@ -22,7 +22,7 @@
 
 <% if logged_in? && current_user != @question.user %>
   <h3>Submit an Answer:</h3>
-  <%= form_for [@question, @answer] do |f| %>
+  <%= form_for [@question, @answer], do |f| %>
     <%= f.text_area :content %>
     <%= f.submit %>
   <% end %>
