@@ -1,3 +1,21 @@
+header, .container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 5px;
+}
 ul {
   list-style: none;
 }
@@ -10,3 +28,17 @@ label {
 .hidden {
   display: none;
 }
+
+textarea {
+  width: 500px;
+  height: 100px;
+}
+
+.question-display h4 {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.question-display p {
+  margin-top:0;
+}
+
