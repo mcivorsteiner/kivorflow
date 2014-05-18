@@ -1,0 +1,11 @@
+<h2>All Questions:</h2>
+<ul>
+<% @questions.each do |question| %>
+  <%= render :partial => 'shared/question_display', locals: { question: question } %>
+<% end %>
+</ul>
+
+<% if logged_in? %>
+  <h3>Create New Question:</h3>
+  <%= render :partial => 'shared/new_question_form' %>
+<% end %>
