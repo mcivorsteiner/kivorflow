@@ -1,5 +1,5 @@
 <ul>
-  <%= form_for @user do |f| %>
+  <%= form_for(:user, :url => users_path, :html => {id: "sign-up-form"}) do |f| %>
     <li>
       <%= f.label :full_name, "Full Name" %>
       <%= f.text_field :full_name %>

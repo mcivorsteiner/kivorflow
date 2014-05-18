@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to user
     else
-      redirect_to root_path
+      render 'home/index'
     end
   end
 
