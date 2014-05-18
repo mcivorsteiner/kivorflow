@@ -1,0 +1,22 @@
+<li class="answer">
+  <h5><%= "#{answer.user.full_name} (#{answer.created_at.strftime("%m-%d-%y at %H:%M")})" %></h5>
+  <p><%= answer.content %></p>
+  <div class="comment-list">
+    <p class="comment-list-header">Answer Comments:</p>
+    <ul>
+      <% answer.comments.each do |comment| %>
+        <li class="answer-comment">
+          <%= "#{comment.content} (#{comment.user.full_name} at #{comment.created_at.strftime("%m-%d-%y at %H:%M")})" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%= link_to "show", question_answer_path(@question, answer) %>
+  <%= form_for :comment, url: '/comments' do |f| %>
+    <%= f.hidden_field :commentable_type, :value => "Answer" %>
+    <%= f.hidden_field :commentable_id, :value => answer.id %>
+
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+</li>

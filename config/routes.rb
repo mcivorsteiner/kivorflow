@@ -4,8 +4,8 @@ Kivorflow::Application.routes.draw do
   resources :sessions, :only => [:new, :create, :destroy]
   resources :questions do
     resources :answers
-    resources :comments
   end
+  resources :comments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -9,12 +9,13 @@ class CommentsController < ApplicationController
   end
 
   def create
-    question = Question.find(params[:question_id])
-    @comment = question.comments.build(content: params[:comment][:content], user_id: session[:user_id])
+    user = User.find_by_id(session[:user_id])
+    @comment = user.comments.build(params[:comment])
     if @comment.save
-      redirect_to question_path(question)
+      parent = @comment.commentable
+      @comment.commentable_type == "Question" ? redirect_to(parent) : redirect_to(parent.question)
     else
-      redirect_to question_path(question)
+      redirect_to @comment.commentable
     end
   end
 
