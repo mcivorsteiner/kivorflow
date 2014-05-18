@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   EMAIL_REGEX = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i
   validates :full_name, :presence => true
   validates :email, :presence => true, :uniqueness => true, :format => EMAIL_REGEX
-  validates_presence_of :password, :on => :create
+  #validates_presence_of :password, :on => :create#, :message => "can't be blank"
 
 end
