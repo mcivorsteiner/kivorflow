@@ -2,6 +2,7 @@ Kivorflow::Application.routes.draw do
   root :to => "home#index"
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :questions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
