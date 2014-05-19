@@ -6,6 +6,6 @@ class Question < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def vote_total
-    self.votes.inject {|sum, vote| sum + vote.value}
+    self.votes.empty? ? 0 : self.votes.map(&:value).inject(:+)
   end
 end
