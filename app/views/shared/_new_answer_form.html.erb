@@ -1,4 +1,5 @@
-<%= form_for [question, answer] do |f| %>
-  <%= f.text_area :content %>
+<%= form_for [question, answer], remote: true do |f| %>
+  <%= f.hidden_field :question_id, value: question.id %>
+  <%= f.text_area :content%>
   <%= f.submit %>
 <% end %>

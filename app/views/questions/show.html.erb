@@ -34,7 +34,7 @@
   <h3>Answers:</h3>
   <ul class="answers-list">
     <% @question.answers.each do |answer| %>
-      <%= render :partial => 'shared/answer_display', :locals => { answer: answer, question: @question } %>
+      <%= render :partial => 'shared/answer_display', :locals => { answer: answer } %>
     <% end %>
   </ul>
 </div>
