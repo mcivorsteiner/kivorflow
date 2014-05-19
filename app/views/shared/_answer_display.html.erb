@@ -1,6 +1,35 @@
+
+
 <li id="answer<%= answer.id %>" class="answer">
-  <h5><%= "#{answer.user.full_name} (#{answer.created_at.strftime("%m-%d-%y at %H:%M")})" %></h5>
-  <p><%= answer.content %></p>
+
+  <!--############## ANSWER DETAILS ###############-->
+  <div class="answer-content">
+    <h5><%= "#{answer.user.full_name} (#{answer.created_at.strftime("%m-%d-%y at %H:%M")})" %></h5>
+    <p><%= answer.content %></p>
+  </div>
+
+  <!--############## ANSWER VOTES ###############-->
+
+  <div class="votes">
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "answer#{answer.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: 1 %>
+      <%= f.hidden_field :votable_type, value: "Answer" %>
+      <%= f.hidden_field :votable_id, value: answer.id %>
+      <%= f.submit "UPVOTE" %>
+    <% end %>
+    <text class='vote_total' data-votable="answer<%= answer.id %>">
+      Vote Total: <%= answer.vote_total %>
+    </text>
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "answer#{answer.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: -1 %>
+      <%= f.hidden_field :votable_type, value: "Answer" %>
+      <%= f.hidden_field :votable_id, value: answer.id %>
+      <%= f.submit "DOWNVOTE" %>
+    <% end %>
+  </div>
+
+  <!--############## ANSWER COMMENTS ###############-->
+
   <div class="comment-list" data-commentable="answer<%= answer.id %>">
     <p class="comment-list-header">Answer Comments:</p>
     <ul>
@@ -9,6 +38,9 @@
       <% end %>
     </ul>
   </div>
+
+  <!--############## NEW COMMENT ###############-->
+
   <%= link_to "Add Comment", answer.question, :class => "comment-form-link" %>
   <div class="comment-form hidden">
     <%= form_for :comment, url: '/comments', html: { class: "new-comment", "data-commentable" => "answer#{answer.id}"}, remote: true do |f| %>

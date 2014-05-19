@@ -1,13 +1,41 @@
 
+<!--############## QUESTION DETAILS ###############-->
+
 <h2>Question:</h2>
 <div class="question-display">
-  <h3><%= @question.title %></h3>
-  <p><%= @question.content %></p>
-  <text class="question-details">created by <%= @question.user.full_name %> at <%= @question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
-  <% if current_user == @question.user %>
-    <%= link_to "Edit", edit_question_path(@question) %>
-    <%= link_to "Delete", question_path(@question), :method => "delete" %>
-  <% end %>
+  <div class="question-content">
+    <h3><%= @question.title %></h3>
+    <p><%= @question.content %></p>
+    <text class="question-details">created by <%= @question.user.full_name %> at <%= @question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
+    <% if current_user == @question.user %>
+      <%= link_to "Edit", edit_question_path(@question) %>
+      <%= link_to "Delete", question_path(@question), :method => "delete" %>
+    <% end %>
+  </div>
+
+  <!--############## QUESTION VOTES ###############-->
+
+  <div class="votes">
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "question#{@question.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: 1 %>
+      <%= f.hidden_field :votable_type, value: "Question" %>
+      <%= f.hidden_field :votable_id, value: @question.id %>
+      <%= f.submit "UPVOTE" %>
+    <% end %>
+    <text class='vote_total' data-votable="question<%= @question.id %>">
+      Vote Total: <%= @question.vote_total %>
+    </text>
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "question#{@question.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: -1 %>
+      <%= f.hidden_field :votable_type, value: "Question" %>
+      <%= f.hidden_field :votable_id, value: @question.id %>
+      <%= f.submit "DOWNVOTE" %>
+    <% end %>
+  </div>
+
+  <!--############## QUESTION COMMENTS ###############-->
+
+
   <div class="comment-list" data-commentable="question<%= @question.id%>">
     <p class="comment-list-header">Question Comments:</p>
     <ul>
@@ -16,6 +44,10 @@
       <% end %>
     </ul>
   </div>
+
+  <!--############## NEW QUESTION COMMENT ###############-->
+
+
   <%= link_to "Add Comment", @question, :class => "comment-form-link" %>
   <div class="comment-form hidden">
     <%= form_for :comment, url: '/comments', html: { class: "new-comment", "data-commentable" => "question#{@question.id}"}, remote: true do |f| %>
@@ -28,6 +60,8 @@
   </div>
 </div>
 
+<!--############## ANSWERS ###############-->
+
 <div id="answers">
   <h3>Answers:</h3>
   <ul class="answers-list">
@@ -36,6 +70,8 @@
     <% end %>
   </ul>
 </div>
+
+<!--############## NEW ANSWER ###############-->
 
 <% if logged_in? && current_user != @question.user %>
   <h3>Submit an Answer:</h3>
