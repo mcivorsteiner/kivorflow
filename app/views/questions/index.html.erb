@@ -1,9 +1,9 @@
 <h2>All Questions:</h2>
-<ul>
-<% @questions.each do |question| %>
-  <%= render :partial => 'shared/question_display', locals: { question: question } %>
-<% end %>
-</ul>
+<div class="questions-list">
+  <% @questions.each do |question| %>
+    <%= render :partial => 'shared/question_display', locals: { question: question } %>
+  <% end %>
+</div>
 
 <% if logged_in? %>
   <h3>Create New Question:</h3>

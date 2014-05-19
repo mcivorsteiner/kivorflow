@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(params[:question])
     if @user && @question.save
       @user.questions << @question
-      redirect_to @user
+      render :partial => 'shared/question_display', locals: { question: @question }
     else
       redirect_to @user
     end

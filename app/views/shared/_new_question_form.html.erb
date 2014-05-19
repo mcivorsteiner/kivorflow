@@ -1,5 +1,5 @@
 <ul>
-  <%= form_for(:question, url: '/questions') do |f| %>
+  <%= form_for :question, url: '/questions', :html => {class: "new-question-form"}, remote: true do |f| %>
     <li>
       <%= f.label :title %>
       <%= f.text_field :title %>

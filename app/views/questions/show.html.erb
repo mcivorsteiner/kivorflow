@@ -32,7 +32,7 @@
 
 <div id="answers">
   <h3>Answers:</h3>
-  <ul>
+  <ul class="answers-list">
     <% @question.answers.each do |answer| %>
       <%= render :partial => 'shared/answer_display', :locals => { answer: answer, question: @question } %>
     <% end %>
