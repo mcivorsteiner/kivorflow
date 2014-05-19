@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     @comment = user.comments.build(params[:comment])
     if @comment.save
       parent = @comment.commentable
-      @comment.commentable_type == "Question" ? redirect_to(parent) : redirect_to(parent.question)
+      render partial: 'shared/comment_display', locals: { comment: @comment }
     else
       redirect_to @comment.commentable
     end

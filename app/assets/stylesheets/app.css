@@ -76,7 +76,7 @@ textarea {
   margin-bottom: 0;
 }
 
-.answer-comment {
+.comment-display {
   color: grey;
   font-size: .8em;
   border-bottom: 1px dotted black;

@@ -1,19 +1,17 @@
-<li class="answer">
+<li id="answer<%= answer.id %>" class="answer">
   <h5><%= "#{answer.user.full_name} (#{answer.created_at.strftime("%m-%d-%y at %H:%M")})" %></h5>
   <p><%= answer.content %></p>
-  <div class="comment-list">
+  <div class="comment-list" data-commentable="answer<%= answer.id %>">
     <p class="comment-list-header">Answer Comments:</p>
     <ul>
       <% answer.comments.each do |comment| %>
-        <li class="answer-comment">
-          <%= "#{comment.content} (#{comment.user.full_name} at #{comment.created_at.strftime("%m-%d-%y at %H:%M")})" %>
-        </li>
+        <%= render partial: 'shared/comment_display', locals: { comment: comment } %>
       <% end %>
     </ul>
   </div>
   <%= link_to "Add Comment", answer.question, :class => "comment-form-link" %>
   <div class="comment-form hidden">
-    <%= form_for :comment, url: '/comments' do |f| %>
+    <%= form_for :comment, url: '/comments', html: { class: "new-comment", "data-commentable" => "answer#{answer.id}"}, remote: true do |f| %>
       <%= f.hidden_field :commentable_type, :value => "Answer" %>
       <%= f.hidden_field :commentable_id, :value => answer.id %>
 
