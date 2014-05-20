@@ -25,4 +25,35 @@ describe QuestionsController do
       expect(assigns(:question)).to eq question 
     end
   end
+
+  context "create" do
+    let(:user) { FactoryGirl.create :user }
+    it "assigns correct user" do
+      session[:user_id] = user.id
+      # log_in_user(user)
+      post :create, question: FactoryGirl.attributes_for(:question)
+      expect(assigns(:user)).to eq(user)
+    end
+
+    it "doesnt create question when user not logged in" do
+      session[:user_id] = nil
+      post :create, question: FactoryGirl.attributes_for(:question)
+      expect(Question.count).to eq(0)
+    end
+
+    it "creates questin when user logged in and valid attributes" do
+      session[:user_id] = user.id
+      expect {
+        post :create, question: FactoryGirl.attributes_for(:question)
+      }.to change { Question.count }.by(1)
+    end
+
+    it "doesn't create if attributes are invalid" do
+      session[:user_id] = user.id
+      expect {
+        post :create
+      }.not_to change { Question.count }
+    end
+  end
+
 end

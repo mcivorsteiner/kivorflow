@@ -19,7 +19,7 @@ class QuestionsController < ApplicationController
       @user.questions << @question
       render :partial => 'shared/question_display', locals: { question: @question }
     else
-      redirect_to @user
+      render :text => @question.errors.full_messages.join(", "), status: :unprocessable_entity
     end
   end
 
