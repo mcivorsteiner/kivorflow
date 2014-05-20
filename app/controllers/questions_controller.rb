@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_id(session[:user_id])
+    @user = current_user
     @question = Question.new(params[:question])
     if @user && @question.save
       @user.questions << @question
@@ -39,6 +39,6 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-    redirect_to user_path(User.find(session[:user_id]))
+    redirect_to user_path(current_user)
   end
 end
