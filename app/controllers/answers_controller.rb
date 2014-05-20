@@ -3,8 +3,6 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.find_by_id(params[:id])
-    @comment = Comment.new
   end
 
   def new
@@ -15,7 +13,7 @@ class AnswersController < ApplicationController
     if @answer.save
       render :partial => 'shared/answer_display', :locals => { answer: @answer }
     else
-      redirect_to question_path(question)
+      render :text => @answer.errors.full_messages.join(", "), status: :unprocessable_entity
     end
   end
 

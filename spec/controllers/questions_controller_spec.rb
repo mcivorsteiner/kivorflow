@@ -31,11 +31,6 @@ describe QuestionsController do
   end
 
   context "create" do
-    it "assigns correct user" do
-      post :create, question: FactoryGirl.attributes_for(:question)
-      expect(assigns(:user)).to eq(user)
-    end
-
     it "creates questin when user logged in and valid attributes" do
       expect {
         post :create, question: FactoryGirl.attributes_for(:question)
