@@ -7,6 +7,17 @@ header {
   text-align: center;
 }
 
+nav {
+  text-align: center;
+  margin: 0 auto;
+}
+.nav-pills li{
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  display: inline-block;
+  float: none;
+}
+
 nav ul {
   margin: 0;
   padding: 0;
