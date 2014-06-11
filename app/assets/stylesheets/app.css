@@ -53,24 +53,29 @@ textarea {
 }
 
 .question-display {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
-  padding-left: 10px;
+  padding: 10px;
+  background-color: #bdc3c7;
+  border-radius: 10px;
 }
 
 .votes {
   margin-top: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   width: 15%;
   vertical-align: top;
 }
 
 .answer {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
-  padding-left: 10px;
+  padding: 0 10px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
 }
 
 .comment-list {
