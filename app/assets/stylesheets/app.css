@@ -1,5 +1,6 @@
 header, .container {
   width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -7,28 +8,18 @@ header {
   text-align: center;
 }
 
-nav {
-  text-align: center;
-  margin: 0 auto;
-}
+
 .nav-pills li{
   background-color: #ecf0f1;
-  border-radius: 5px;
-  display: inline-block;
-  float: none;
+  /*border-radius: 5px;*/
+  /*display: inline-block;*/
+  /*float: none;*/
 }
 
-nav ul {
-  margin: 0;
-  padding: 0;
-}
 
-nav li {
-  display: inline-block;
-  margin-right: 5px;
-}
 ul {
   list-style: none;
+  /*padding: 0;*/
 }
 
 label {
@@ -78,10 +69,11 @@ textarea {
   display: inline-block;
   width: 15%;
   vertical-align: top;
+  text-align: right;
 }
 
 .vote_total {
-  margin-left: 9px;
+  margin-right: 10px;
   font-size: 1.3em;
 }
 
@@ -117,4 +109,10 @@ textarea {
 
 .error_messages {
   color:red;
+}
+
+@media (max-width: 600px) {
+  ul {
+  padding: 0;
+  }
 }
