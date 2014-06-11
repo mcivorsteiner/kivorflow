@@ -20,16 +20,20 @@
       <%= f.hidden_field :value, value: 1 %>
       <%= f.hidden_field :votable_type, value: "Question" %>
       <%= f.hidden_field :votable_id, value: @question.id %>
-      <%= f.submit "UPVOTE" %>
+      <button type="submit" name="button" class="upvote-button">
+        <img src="/assets/upvote-arrow.png">
+      </button>
     <% end %>
     <text class='vote_total' data-votable="question<%= @question.id %>">
-      Vote Total: <%= @question.vote_total %>
+      <%= @question.vote_total %>
     </text>
     <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "question#{@question.id}"}, remote: true do |f| %>
       <%= f.hidden_field :value, value: -1 %>
       <%= f.hidden_field :votable_type, value: "Question" %>
       <%= f.hidden_field :votable_id, value: @question.id %>
-      <%= f.submit "DOWNVOTE" %>
+      <button type="submit" name="button" class="downvote-button">
+        <img src="/assets/downvote-arrow.png">
+      </button>
     <% end %>
   </div>
 

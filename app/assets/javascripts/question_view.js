@@ -27,7 +27,7 @@ QuestionsView.prototype = {
 
   updateVoteTotal: function(event, data, status){
     var $element = this._getVoteTotalElement(data.votable_type, data.votable_id)
-    $element.text("Vote Total: " + data.vote_total)
+    $element.text(data.vote_total)
   },
 
   _getCommentList: function(commentableData){

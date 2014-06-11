@@ -1,5 +1,6 @@
 header, .container {
   width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -7,17 +8,18 @@ header {
   text-align: center;
 }
 
-nav ul {
-  margin: 0;
-  padding: 0;
+
+.nav-pills li{
+  background-color: #ecf0f1;
+  /*border-radius: 5px;*/
+  /*display: inline-block;*/
+  /*float: none;*/
 }
 
-nav li {
-  display: inline-block;
-  margin-right: 5px;
-}
+
 ul {
   list-style: none;
+  /*padding: 0;*/
 }
 
 label {
@@ -30,7 +32,7 @@ label {
 }
 
 textarea {
-  width: 500px;
+  width: 75%;
   height: 50px;
 }
 
@@ -53,24 +55,41 @@ textarea {
 }
 
 .question-display {
-  border: 2px solid black;
+  /*border: 2px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
-  padding-left: 10px;
+  padding: 10px;
+  background-color: #bdc3c7;
+  border-radius: 10px;
 }
 
 .votes {
   margin-top: 10px;
+  margin-bottom: 10px;
   display: inline-block;
   width: 15%;
   vertical-align: top;
+  text-align: right;
 }
 
+.vote_total {
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.upvote-button img, .downvote-button img {
+  width: 15px;
+}
+
+
+
 .answer {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
-  padding-left: 10px;
+  padding: 0 10px;
+  background-color: #ecf0f1;
+  border-radius: 10px;
 }
 
 .comment-list {
@@ -96,4 +115,10 @@ textarea {
 
 .error_messages {
   color:red;
+}
+
+@media (max-width: 600px) {
+  ul {
+  padding: 0;
+  }
 }
