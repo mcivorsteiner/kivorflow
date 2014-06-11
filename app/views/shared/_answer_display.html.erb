@@ -15,8 +15,8 @@
       <%= f.hidden_field :value, value: 1 %>
       <%= f.hidden_field :votable_type, value: "Answer" %>
       <%= f.hidden_field :votable_id, value: answer.id %>
-      <button type="submit" name="button">
-        <span class="glyphicon glyphicon-chevron-up"></span>
+      <button type="submit" name="button" class="upvote-button">
+        <img src="/assets/upvote-arrow.png">
       </button>
     <% end %>
     <text class='vote_total' data-votable="answer<%= answer.id %>">
@@ -26,8 +26,8 @@
       <%= f.hidden_field :value, value: -1 %>
       <%= f.hidden_field :votable_type, value: "Answer" %>
       <%= f.hidden_field :votable_id, value: answer.id %>
-      <button type="submit" name="button">
-        <span class="glyphicon glyphicon-chevron-down"></span>
+      <button type="submit" name="button" class="downvote-button">
+        <img src="/assets/downvote-arrow.png">
       </button>
     <% end %>
   </div>
