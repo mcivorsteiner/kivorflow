@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    user = User.find_by_id(session[:user_id])
+    user = current_user
     @comment = user.comments.build(params[:comment])
     if @comment.save
       parent = @comment.commentable
