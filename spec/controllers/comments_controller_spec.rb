@@ -18,5 +18,11 @@ describe CommentsController do
         post :create, comment: { commentable_type: "Answer", commentable_id: answer.id, content: "Miss America" }
       }.to change{answer.comments.count}.by(1)
     end
+
+    it "should add association to correct question" do
+      expect {
+        post :create, comment: { commentable_type: "Question", commentable_id: question.id, content: "Unbelievable" }
+      }.to change{question.comments.count}.by(1)
+    end
   end
 end
