@@ -40,6 +40,10 @@ group :development, :test do
   gem 'jasmine-rails'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
