@@ -80,6 +80,11 @@ textarea {
   vertical-align: top;
 }
 
+.vote_total {
+  margin-left: 9px;
+  font-size: 1.3em;
+}
+
 .answer {
   /*border: 1px solid black;*/
   min-height: 40px;
