@@ -2,7 +2,7 @@
 ### DESCRIPTION
 Simple clone of Stack Overflow using Rails, heavy AJAX, responsive design, RSpec, polymorphic associations and more.  This was a project for Dev Bootcamp, but was a solo project, all code was written by me.  
 
-[stack-kivorflow.herokuapp.com](http://stack-kivorflow.herokuapp.com/)
+<a href="http://stack-kivorflow.herokuapp.com/" target="_blank">stack-kivorflow.herokuapp.com</a>
 
 
 ### USER STORIES
