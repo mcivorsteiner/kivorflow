@@ -5,6 +5,8 @@ function QuestionsView(){
   this.answersListSelector = '.answers-list'
   this.commentFormSelector = '.new-comment'
   this.voteFormSelector = '.vote-form'
+  this.commentLinkSelector = ".comment-form-link"
+  this.commentDivSelector = ".comment-form"
 }
 
 QuestionsView.prototype = {
@@ -14,8 +16,6 @@ QuestionsView.prototype = {
   },
 
   appendAnswer: function(event, data, status){
-    console.log(event.target)
-
     $(this.answersListSelector).append(data)
   },
 
@@ -28,6 +28,11 @@ QuestionsView.prototype = {
   updateVoteTotal: function(event, data, status){
     var $element = this._getVoteTotalElement(data.votable_type, data.votable_id)
     $element.text(data.vote_total)
+  },
+
+  toggleCommentForm: function(){
+    event.preventDefault()
+    $(event.target).next().toggleClass("hidden")
   },
 
   _getCommentList: function(commentableData){
