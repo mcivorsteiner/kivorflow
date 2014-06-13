@@ -30,7 +30,7 @@ QuestionsView.prototype = {
     $element.text(data.vote_total)
   },
 
-  toggleCommentForm: function(){
+  toggleCommentForm: function(e){
     event.preventDefault()
     $(event.target).next().toggleClass("hidden")
   },
