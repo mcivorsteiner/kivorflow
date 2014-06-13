@@ -14,11 +14,12 @@ AjaxController.prototype = {
 
   appendComment: function(e, data, status){
     this.questionView.appendComment(e, data)
+    this.questionView.toggleCommentForm(e.target)
   },
 
   toggleCommentForm: function(e){
     e.preventDefault()
-    var commentForm = $(event.target).next()
+    var commentForm = $(e.target).next()
     this.questionView.toggleCommentForm(commentForm)
   }
 }
