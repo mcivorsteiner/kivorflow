@@ -8,6 +8,7 @@ AjaxController.prototype = {
     $(this.questionView.answerFormSelector).on('ajax:success', this.appendAnswer.bind(this))
     $('.container').on('ajax:success', this.questionView.commentFormSelector, this.appendComment.bind(this))
     $('.container').on('ajax:success', this.questionView.voteFormSelector, this.questionView.updateVoteTotal.bind(this.questionView))
+    $('.container').on('ajax:error', this.questionView.voteFormSelector, this.questionView.renderVoteError.bind(this.questionView))
     $('.container').on('click', this.questionView.commentLinkSelector, this.toggleCommentForm.bind(this))
   },
 

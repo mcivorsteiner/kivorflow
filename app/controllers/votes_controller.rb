@@ -4,8 +4,8 @@ class VotesController < ApplicationController
       @vote = current_user.votes.create(params[:vote])
       render :json => { vote_total: @vote.votable.vote_total , votable_type: @vote.votable_type.downcase, votable_id: @vote.votable_id }
     else
-      error = logged_in? ? "can only vote once" : "log in to vote"
-      render :text => error, :status => :unprocessable_entity
+      error = logged_in? ? "you can only vote once" : "must be logged in to vote"
+      render :json => { error: error}, :status => :unprocessable_entity
     end
   end
 end
