@@ -14,7 +14,8 @@ AjaxController.prototype = {
 
   appendComment: function(e, data, status){
     this.questionView.appendComment(e, data)
-    this.questionView.toggleCommentForm(e.target)
+    var formDiv = $(e.target).parent()
+    this.questionView.toggleCommentForm(formDiv)
   },
 
   toggleCommentForm: function(e){
