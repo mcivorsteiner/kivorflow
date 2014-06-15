@@ -10,28 +10,32 @@ function QuestionsView(){
 }
 
 QuestionsView.prototype = {
-  appendQuestion: function(event, data, status){
-    console.log(event.target)
+  appendQuestion: function(e, data){
+    console.log(e.target)
     $(this.questionsListSelector).append(data)
   },
 
-  appendAnswer: function(event, data, status){
+  appendAnswer: function(e, data){
     $(this.answersListSelector).append(data)
   },
 
-  appendComment: function(event, data, status){
-    var commentableData = $(event.target).data("commentable")
+  appendComment: function(e, data){
+    var commentableData = $(e.target).data("commentable")
     $element = this._getCommentList(commentableData)
     this._getCommentList(commentableData).append(data)
   },
 
-  updateVoteTotal: function(event, data, status){
+  updateVoteTotal: function(e, data){
     var $element = this._getVoteTotalElement(data.votable_type, data.votable_id)
     $element.text(data.vote_total)
   },
 
-  toggleCommentForm: function(commentForm){
-    $(commentForm).toggleClass("hidden")
+  toggleElement: function(element){
+    $(element).toggleClass("hidden")
+  },
+
+  resetForm: function(form){
+    form.reset()
   },
 
   _getCommentList: function(commentableData){

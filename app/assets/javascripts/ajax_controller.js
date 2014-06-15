@@ -5,23 +5,26 @@ function AjaxController(questionView){
 AjaxController.prototype = {
   init: function(){
     $(this.questionView.questionFormSelector).on('ajax:success', this.questionView.appendQuestion.bind(this.questionView))
-    $(this.questionView.answerFormSelector).on('ajax:success', this.questionView.appendAnswer.bind(this.questionView))
+    $(this.questionView.answerFormSelector).on('ajax:success', this.appendAnswer.bind(this))
     $('.container').on('ajax:success', this.questionView.commentFormSelector, this.appendComment.bind(this))
     $('.container').on('ajax:success', this.questionView.voteFormSelector, this.questionView.updateVoteTotal.bind(this.questionView))
     $('.container').on('click', this.questionView.commentLinkSelector, this.toggleCommentForm.bind(this))
   },
 
+  appendAnswer: function(e, data){
+    this.questionView.appendAnswer(e, data)
+    this.questionView.resetForm(e.target)
+  },
 
-  appendComment: function(e, data, status){
+  appendComment: function(e, data){
     this.questionView.appendComment(e, data)
-    e.target.reset()
-    var formDiv = $(e.target).parent()
-    this.questionView.toggleCommentForm(formDiv)
+    this.questionView.resetForm(e.target)
+    this.questionView.toggleElement($(e.target).parent())
   },
 
   toggleCommentForm: function(e){
     e.preventDefault()
-    var commentForm = $(e.target).next()
-    this.questionView.toggleCommentForm(commentForm)
+    var commentFormDiv = $(e.target).next()
+    this.questionView.toggleElement(commentFormDiv)
   }
 }
