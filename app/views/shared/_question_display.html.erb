@@ -1,10 +1,38 @@
 
+<!--############## QUESTION DETAILS ###############-->
+
 <div id="<%= "question#{question.id}" %>" class="question-display">
-  <h4><%= link_to question.title, question %></h4>
-  <p><%= question.content %></p>
-  <text class="question-details">created by <%= question.user.full_name %> at <%= question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
-  <% if current_user == question.user %>
-    <%= link_to "Edit", edit_question_path(question) %>
-    <%= link_to "Delete", question_path(question), :method => "delete" %>
-  <% end %>
+  <div class="question-content">
+    <h3><%= link_to question.title, question %></h3>
+    <p><%= question.content %></p>
+    <text class="question-details">created by <%= question.user.full_name %> at <%= question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
+    <% if current_user == question.user %>
+      <%= link_to "Edit", edit_question_path(question) %>
+      <%= link_to "Delete", question_path(question), :method => "delete" %>
+    <% end %>
+  </div>
+
+<!--############## QUESTION VOTES ###############-->
+
+  <div class="votes">
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "question#{question.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: 1 %>
+      <%= f.hidden_field :votable_type, value: "Question" %>
+      <%= f.hidden_field :votable_id, value: question.id %>
+      <button type="submit" name="button" class="upvote-button">
+        <img src="/assets/upvote-arrow.png">
+      </button>
+    <% end %>
+    <text class='vote_total' data-votable="question<%= question.id %>">
+      <%= question.vote_total %>
+    </text>
+    <%= form_for :vote, url: '/votes', html: {class: "vote-form", "data-votable" => "question#{question.id}"}, remote: true do |f| %>
+      <%= f.hidden_field :value, value: -1 %>
+      <%= f.hidden_field :votable_type, value: "Question" %>
+      <%= f.hidden_field :votable_id, value: question.id %>
+      <button type="submit" name="button" class="downvote-button">
+        <img src="/assets/downvote-arrow.png">
+      </button>
+    <% end %>
+  </div>
 </div>
