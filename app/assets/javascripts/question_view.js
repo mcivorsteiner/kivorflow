@@ -38,6 +38,12 @@ QuestionsView.prototype = {
     form.reset()
   },
 
+  renderVoteError: function(e, data){
+    alert(data.responseJSON.error)
+    // debugger
+    // var errorMessage = data.responseText
+  },
+
   _getCommentList: function(commentableData){
     var selector = ".comment-list[data-commentable='" + commentableData + "'] ul"
     return $(selector)
