@@ -7,8 +7,8 @@
     <p><%= question.content %></p>
     <text class="question-details">created by <%= question.user.full_name %> at <%= question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
     <% if current_user == question.user %>
-      <%= link_to "Edit", edit_question_path(question) %>
-      <%= link_to "Delete", question_path(question), :method => "delete" %>
+      <%= link_to "Edit", edit_question_path(question), :class => "question-crud-link" %>
+      <%= link_to "Delete", question_path(question), :method => "delete", :class => "question-crud-link" %>
     <% end %>
   </div>
 

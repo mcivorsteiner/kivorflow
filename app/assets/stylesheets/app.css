@@ -39,6 +39,7 @@ textarea {
 #comment_content {
   width: 60%;
 }
+
 .question-display h4 {
   margin-bottom: 0;
   margin-top: 0;
@@ -64,6 +65,11 @@ textarea {
   padding: 10px;
   background-color: #bdc3c7;
   border-radius: 10px;
+}
+
+.question-crud-link {
+  padding: 10px 10px 10px 0;
+  font-size: 1.25em;
 }
 
 .votes {
@@ -114,6 +120,10 @@ textarea {
   color: grey;
   font-size: .8em;
   border-bottom: 1px dotted black;
+}
+
+.comment-form-link {
+  font-size: 1.25em;
 }
 
 .error_messages {
