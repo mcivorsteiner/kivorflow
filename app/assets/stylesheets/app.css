@@ -1,3 +1,8 @@
+
+/* #############################################
+GENERAL
+############################################# */
+
 header, .container {
   width: 90%;
   max-width: 1000px;
@@ -8,7 +13,22 @@ header {
   text-align: center;
 }
 
+ul {
+  list-style: none;
+  /*padding: 0;*/
+}
 
+.hidden {
+  display: none;
+}
+
+.error_messages {
+  color:red;
+}
+
+/* #############################################
+NAVIGATION BAR
+############################################# */
 .nav-pills li{
   background-color: #ecf0f1;
   /*border-radius: 5px;*/
@@ -17,18 +37,13 @@ header {
 }
 
 
-ul {
-  list-style: none;
-  /*padding: 0;*/
-}
+/* #############################################
+TEXT INPUT FIELDS
+############################################# */
 
 label {
   display: inline-block;
   width: 150px;
-}
-
-.hidden {
-  display: none;
 }
 
 textarea {
@@ -39,6 +54,11 @@ textarea {
 #comment_content {
   width: 60%;
 }
+
+
+/* #############################################
+QUESTIONS
+############################################# */
 
 .question-display h4 {
   margin-bottom: 0;
@@ -72,25 +92,10 @@ textarea {
   font-size: 1.25em;
 }
 
-.votes {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  display: inline-block;
-  width: 15%;
-  vertical-align: top;
-  text-align: right;
-}
 
-.vote_total {
-  margin-right: 10px;
-  font-size: 1.3em;
-}
-
-.upvote-button img, .downvote-button img {
-  width: 15px;
-}
-
-
+/* #############################################
+ANSWERS
+############################################# */
 
 .answer {
   /*border: 1px solid black;*/
@@ -100,6 +105,11 @@ textarea {
   background-color: #ecf0f1;
   border-radius: 10px;
 }
+
+
+/* #############################################
+COMMENTS
+############################################# */
 
 .comment-list {
   border-top: 1px solid black;
@@ -126,9 +136,33 @@ textarea {
   font-size: 1.25em;
 }
 
-.error_messages {
-  color:red;
+
+/* #############################################
+VOTES
+############################################# */
+
+.votes {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 15%;
+  vertical-align: top;
+  text-align: right;
 }
+
+.vote_total {
+  margin-right: 10px;
+  font-size: 1.3em;
+}
+
+.upvote-button img, .downvote-button img {
+  width: 15px;
+}
+
+
+/* #############################################
+MEDIA QUERIES
+############################################# */
 
 @media (max-width: 600px) {
   ul {
