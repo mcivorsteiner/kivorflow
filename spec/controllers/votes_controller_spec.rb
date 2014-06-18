@@ -18,5 +18,12 @@ describe VotesController do
         post :create, "vote" => { votable_type: "Answer", votable_id: answer.id, value: 1 }
       }.to change{answer.votes.count}.by(1)
     end
+
+    it 'should not create a vote when user has already voted' do
+      post :create, "vote" => { votable_type: "Answer", votable_id: answer.id, value: 1 }
+      post :create, "vote" => { votable_type: "Answer", votable_id: answer.id, value: 1 }
+      expect(response.status).to eq(422)
+      expect(answer.vote_total).to eq(1)
+    end
   end
 end
