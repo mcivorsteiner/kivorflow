@@ -53,13 +53,13 @@
 
   <% if logged_in? %>
     <%= link_to "Add Comment", @question, :class => "comment-form-link" %>
-    
+
     <div class="comment-form hidden">
       <%= form_for :comment, url: '/comments', html: { class: "new-comment", "data-commentable" => "question#{@question.id}"}, remote: true do |f| %>
         <%= f.hidden_field :commentable_type, :value => "Question" %>
         <%= f.hidden_field :commentable_id, :value => @question.id %>
 
-        <%= f.text_area :content %>
+        <%= f.text_field :content %>
         <%= f.submit %>
       <% end %>
     </div>
