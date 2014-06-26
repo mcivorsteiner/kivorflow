@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe QuestionsController do
   let!(:question) { FactoryGirl.create :question }
+  let!(:answer) { FactoryGirl.create :answer }
   let(:user) { FactoryGirl.create :user }
   before(:each) { stub_current_user(user) }
 
@@ -83,6 +84,40 @@ describe QuestionsController do
       expect {
         delete :destroy, id: question.id
       }.to change{Question.count}.by(-1)
+    end
+
+    it "deletes comments associated with question being deleted" do
+      create_question_comment(user, question)
+      expect {
+        delete :destroy, id: question.id
+      }.to change{Comment.count}.by(-1)
+    end
+
+    it "deletes votes associated with question being deleted" do
+      create_question_vote(user, question)
+      expect {
+        delete :destroy, id: question.id
+      }.to change{Vote.count}.by(-1)
+    end
+
+    it "deletes answers associated with question being deleted" do
+      expect {
+        delete :destroy, id: answer.question.id
+      }.to change{Answer.count}.by(-1)
+    end
+
+    it "deletes all comments associated with all answers associated with question being deleted" do
+      create_answer_comment(user, answer)
+      expect {
+        delete :destroy, id: answer.question.id
+      }.to change{Comment.count}.by(-1)
+    end
+
+    it "deletes all votes associated with all answers associated with question being deleted" do
+      create_answer_vote(user, answer)
+      expect {
+        delete :destroy, id: answer.question.id
+      }.to change{Vote.count}.by(-1)
     end
   end
 
