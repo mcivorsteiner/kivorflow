@@ -1,36 +1,36 @@
 function QuestionController(questionView){
-  this.questionView = questionView
+  this.view = questionView
 }
 
 QuestionController.prototype = {
   init: function(){
-    $(this.questionView.questionFormSelector).on('ajax:success', this.appendQuestion.bind(this))
-    $(this.questionView.answerFormSelector).on('ajax:success', this.appendAnswer.bind(this))
-    $('.container').on('ajax:success', this.questionView.commentFormSelector, this.appendComment.bind(this))
-    $('.container').on('ajax:success', this.questionView.voteFormSelector, this.questionView.updateVoteTotal.bind(this.questionView))
-    $('.container').on('ajax:error', this.questionView.voteFormSelector, this.questionView.renderVoteError.bind(this.questionView))
-    $('.container').on('click', this.questionView.commentLinkSelector, this.toggleCommentForm.bind(this))
+    $(this.view.questionFormSelector).on('ajax:success', this.appendQuestion.bind(this))
+    $(this.view.answerFormSelector).on('ajax:success', this.appendAnswer.bind(this))
+    $('.container').on('ajax:success', this.view.commentFormSelector, this.appendComment.bind(this))
+    $('.container').on('ajax:success', this.view.voteFormSelector, this.view.updateVoteTotal.bind(this.view))
+    $('.container').on('ajax:error', this.view.voteFormSelector, this.view.renderVoteError.bind(this.view))
+    $('.container').on('click', this.view.commentLinkSelector, this.toggleCommentForm.bind(this))
   },
 
   appendQuestion: function(e, data){
-    this.questionView.appendQuestion(e, data)
-    this.questionView.resetForm(e.target)
+    this.view.appendQuestion(e, data)
+    this.view.resetForm(e.target)
   },
 
   appendAnswer: function(e, data){
-    this.questionView.appendAnswer(e, data)
-    this.questionView.resetForm(e.target)
+    this.view.appendAnswer(e, data)
+    this.view.resetForm(e.target)
   },
 
   appendComment: function(e, data){
-    this.questionView.appendComment(e, data)
-    this.questionView.resetForm(e.target)
-    this.questionView.toggleElement($(e.target).parent())
+    this.view.appendComment(e, data)
+    this.view.resetForm(e.target)
+    this.view.toggleElement($(e.target).parent())
   },
 
   toggleCommentForm: function(e){
     e.preventDefault()
     var commentFormDiv = $(e.target).next()
-    this.questionView.toggleElement(commentFormDiv)
+    this.view.toggleElement(commentFormDiv)
   }
 }
