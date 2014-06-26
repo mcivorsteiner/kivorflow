@@ -6,7 +6,7 @@ function SessionView(){
 }
 
 SessionView.prototype = {
-  showSignUpForm: function(){
+  toggleSignUpForm: function(){
     event.preventDefault()
     $(this.signUpDivSelector).toggleClass("hidden")
   }

@@ -4,6 +4,6 @@ function SessionController(sessionView){
 
 SessionController.prototype = {
   init: function(){
-    $(this.view.signUpLinkSelector).on('click', this.view.showSignUpForm.bind(this.view))
+    $(this.view.signUpLinkSelector).on('click', this.view.toggleSignUpForm.bind(this.view))
   }
 }
