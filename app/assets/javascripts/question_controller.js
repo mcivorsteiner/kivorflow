@@ -32,5 +32,6 @@ QuestionController.prototype = {
     e.preventDefault()
     var commentFormDiv = $(e.target).next()
     this.view.toggleElement(commentFormDiv)
+    commentFormDiv.find("input[type='text']")[0].focus()
   }
 }
