@@ -84,6 +84,13 @@ describe QuestionsController do
         delete :destroy, id: question.id
       }.to change{Question.count}.by(-1)
     end
+
+    it "deletes comments associated with question being deleted" do
+      create_question_comment(user, question)
+      expect {
+        delete :destroy, id: question.id
+      }.to change{Comment.count}.by(-1)
+    end
   end
 
 end
