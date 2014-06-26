@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var sessionController = new SessionController( new SessionView() )
-  var ajaxController = new AjaxController( new QuestionsView() )
+  var questionController = new QuestionController( new QuestionsView() )
   sessionController.init()
-  ajaxController.init()
+  questionController.init()
 });

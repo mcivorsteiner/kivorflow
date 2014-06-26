@@ -1,8 +1,8 @@
-function AjaxController(questionView){
+function QuestionController(questionView){
   this.questionView = questionView
 }
 
-AjaxController.prototype = {
+QuestionController.prototype = {
   init: function(){
     $(this.questionView.questionFormSelector).on('ajax:success', this.appendQuestion.bind(this))
     $(this.questionView.answerFormSelector).on('ajax:success', this.appendAnswer.bind(this))

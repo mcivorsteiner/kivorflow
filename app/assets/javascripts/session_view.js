@@ -8,7 +8,6 @@ function SessionView(){
 SessionView.prototype = {
   showSignUpForm: function(){
     event.preventDefault()
-    // $(this.loginFormSelector).toggleClass("hidden")
     $(this.signUpDivSelector).toggleClass("hidden")
   }
 }

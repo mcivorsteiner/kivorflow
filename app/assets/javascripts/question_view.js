@@ -40,8 +40,6 @@ QuestionsView.prototype = {
 
   renderVoteError: function(e, data){
     alert(data.responseJSON.error)
-    // debugger
-    // var errorMessage = data.responseText
   },
 
   _getCommentList: function(commentableData){
@@ -53,6 +51,5 @@ QuestionsView.prototype = {
     var selector = ".vote_total[data-votable='" + votable_type + votable_id + "']"
     return $(selector)
   }
-
 
 }
