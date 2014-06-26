@@ -98,6 +98,13 @@ describe QuestionsController do
         delete :destroy, id: answer.question.id
       }.to change{Answer.count}.by(-1)
     end
+
+    it "deletes all comments associated with all answers associated with question being deleted" do
+      create_answer_comment(user, answer)
+      expect {
+        delete :destroy, id: answer.question.id
+      }.to change{Comment.count}.by(-1)
+    end
   end
 
 end

@@ -21,4 +21,8 @@ module TestHelpers
   def create_question_comment(user, question)
     question.comments.create(user_id: user.id, content: "this is a question comment")
   end
+
+  def create_answer_comment(user, answer)
+    answer.comments.create(user_id: user.id, content: "this is an answer comment")
+  end
 end
