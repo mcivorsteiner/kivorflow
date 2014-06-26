@@ -15,7 +15,6 @@ header {
 
 ul {
   list-style: none;
-  /*padding: 0;*/
 }
 
 .hidden {
@@ -31,9 +30,6 @@ NAVIGATION BAR
 ############################################# */
 .nav-pills li{
   background-color: #ecf0f1;
-  /*border-radius: 5px;*/
-  /*display: inline-block;*/
-  /*float: none;*/
 }
 
 
@@ -43,7 +39,8 @@ TEXT INPUT FIELDS
 
 label {
   display: inline-block;
-  width: 150px;
+  width: 165px;
+  margin-top: 3px;
   vertical-align: top;
 }
 
@@ -85,7 +82,6 @@ QUESTIONS
 }
 
 .question-display {
-  /*border: 2px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
   padding: 10px;
@@ -104,7 +100,6 @@ ANSWERS
 ############################################# */
 
 .answer {
-  /*border: 1px solid black;*/
   min-height: 40px;
   margin-bottom: 5px;
   padding: 0 10px;
