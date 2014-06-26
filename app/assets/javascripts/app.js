@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  var homeView = new HomeView()
-  var homeController = new HomeController(homeView)
+  var sessionView = new SessionView()
+  var sessionController = new SessionController(sessionView)
   var questionsView = new QuestionsView()
   var ajaxController = new AjaxController(questionsView)
-  homeController.init()
+  sessionController.init()
   ajaxController.init()
 });

@@ -1,8 +1,8 @@
-function HomeController(homeView){
-  this.view = homeView
+function SessionController(sessionView){
+  this.view = sessionView
 }
 
-HomeController.prototype = {
+SessionController.prototype = {
   init: function(){
     $(this.view.signUpLinkSelector).on('click', this.view.showSignUpForm.bind(this.view))
   }
