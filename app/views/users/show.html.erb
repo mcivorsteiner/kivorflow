@@ -3,7 +3,7 @@
 
 <div id="user-questions" class="questions-list">
   <h4>Question's posted by <%= @user.full_name %>:</h4>
-  <% @user.questions.each do |question| %>
+  <% @user.questions.order("created_at DESC").each do |question| %>
     <%= render :partial => 'shared/question_display', locals: { question: question } %>
   <% end %>
 </div>
