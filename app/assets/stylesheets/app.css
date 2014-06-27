@@ -64,7 +64,7 @@ QUESTIONS
 ############################################# */
 
 .question-display h4 {
-  margin-bottom: 0;
+  margin-bottom: 5px;
   margin-top: 0;
 }
 .question-display p {

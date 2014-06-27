@@ -1,10 +1,10 @@
 
 <!--############## QUESTION DETAILS ###############-->
 
-<h2>Question:</h2>
+<h3>Question:</h3>
 <div class="question-display">
   <div class="question-content">
-    <h3><%= @question.title %></h3>
+    <h4><%= @question.title %></h4>
     <p><%= @question.content %></p>
     <text class="question-details">created by <%= @question.user.full_name %> at <%= @question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
 
