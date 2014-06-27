@@ -3,7 +3,7 @@
 
 <div id="<%= "question#{question.id}" %>" class="question-display">
   <div class="question-content">
-    <h3><%= link_to question.title, question %></h3>
+    <h4><%= link_to question.title, question %></h4>
     <p><%= question.content %></p>
     <text class="question-details">created by <%= question.user.full_name %> at <%= question.created_at.strftime("%m-%d-%y at %H:%M") %></text>
     <% if current_user == question.user %>
