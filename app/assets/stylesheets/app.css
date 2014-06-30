@@ -108,6 +108,15 @@ ANSWERS
   border-radius: 10px;
 }
 
+.answer-content p {
+  min-height: 55px;
+}
+
+.answer-details {
+  font-size: .8em;
+  display: block;
+}
+
 
 /* #############################################
 COMMENTS

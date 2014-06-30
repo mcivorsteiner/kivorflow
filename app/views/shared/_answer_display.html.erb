@@ -4,8 +4,8 @@
 
   <!--############## ANSWER DETAILS ###############-->
   <div class="answer-content">
-    <h5><%= "#{answer.user.full_name} (#{answer.created_at.strftime("%m-%d-%y at %H:%M")})" %></h5>
     <p><%= answer.content %></p>
+    <text class="answer-details">created by <a href="/users/<%= answer.user.id %>"><%= answer.user.full_name %></a> at <%= answer.created_at.strftime("%m-%d-%y at %H:%M") %></text>
   </div>
 
   <!--############## ANSWER VOTES ###############-->
