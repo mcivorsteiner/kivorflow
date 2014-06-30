@@ -148,6 +148,10 @@ COMMENTS
   font-size: 1.25em;
 }
 
+.comment-user-link {
+  color: grey;
+}
+
 
 /* #############################################
 VOTES
