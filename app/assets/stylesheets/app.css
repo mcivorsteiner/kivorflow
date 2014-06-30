@@ -68,8 +68,9 @@ QUESTIONS
   margin-top: 0;
 }
 
-.question-display p {
-  margin-top:0;
+.question-content p {
+  margin-top: 0;
+  min-height: 30px;
 }
 
 .question-content, .answer-content {
