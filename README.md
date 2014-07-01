@@ -4,6 +4,8 @@ Simple clone of Stack Overflow using Rails, heavy AJAX, responsive design, RSpec
 
 <a href="http://stack-kivorflow.herokuapp.com/" target="_blank">stack-kivorflow.herokuapp.com</a>
 
+### SCREEN SHOTS
+![Imgur](http://i.imgur.com/RzpGei1.png)
 
 ### USER STORIES
 - An anonymous user can sign up
