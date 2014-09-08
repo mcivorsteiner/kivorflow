@@ -9,7 +9,7 @@ Simple clone of Stack Overflow using Rails, heavy AJAX, responsive design, RSpec
 
 ### USER STORIES
 - An anonymous user can sign up
-- An registered user can log in
+- A registered user can log in
 - A logged in user can log out
 - An anonymous user / authenticated user can see a list of questions
 - An anonymous user / authenticated user can click on a question to see it
